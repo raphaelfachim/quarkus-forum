@@ -8,4 +8,6 @@ public interface IGenericRepository<T> {
     public T update(T entity);
     public void delete(T entity);
     public Collection<T> list();
+
+    public T findById(Long id);
 }

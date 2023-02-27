@@ -24,4 +24,9 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
         return typedQuery.getResultList();
     }
 
+    @Override
+    public User findById(Long id) {
+        return em.find(User.class, id);
+    }
+
 }

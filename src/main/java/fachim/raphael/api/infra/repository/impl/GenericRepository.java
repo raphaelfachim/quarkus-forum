@@ -34,4 +34,7 @@ public class GenericRepository<T> implements IGenericRepository<T> {
     public Collection<T> list() {
         throw new UnsupportedOperationException("Method is not yet implemented");
     }
+
+    @Override
+    public T findById(Long id) { throw new UnsupportedOperationException("Method is not yet implemented"); }
 }

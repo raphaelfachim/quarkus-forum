@@ -47,4 +47,19 @@ public class UserController {
         }
     }
 
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findById(@PathParam("id") Long id) {
+        try {
+            return Response.ok().entity(this.userService.findById(id)).build();
+
+        } catch (Exception ex) {
+            return Response
+                    .serverError()
+                    .entity(ex.getMessage())
+                    .build();
+        }
+    }
+
 }

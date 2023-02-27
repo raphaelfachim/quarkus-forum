@@ -22,13 +22,16 @@ public class UserService {
     UserValidator userValidator;
 
     public List<User> findAll() {
-        return (List<User>) this.userRepo.list();
+        return (List<User>) userRepo.list();
     }
 
     public User create(NewUserDTO newUser) throws EntityCreationException {
         User user = UserMapper.NewUserDTOToUser(newUser);
         userValidator.validate(user);
-        return this.userRepo.create(user);
+        return userRepo.create(user);
+    }
+    public User findById(Long id) {
+        return userRepo.findById(id);
     }
 
 }
