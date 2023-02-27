@@ -1,8 +1,6 @@
 package fachim.raphael.api.controller;
 
-import fachim.raphael.api.infra.dto.shared.ServerResponseDTO;
 import fachim.raphael.api.infra.dto.user.NewUserDTO;
-import fachim.raphael.api.infra.repository.impl.UserRepository;
 import fachim.raphael.api.service.user.UserService;
 
 import javax.inject.Inject;
@@ -27,7 +25,7 @@ public class UserController {
         } catch (Exception ex) {
             return Response
                     .serverError()
-                    .entity(ServerResponseDTO.getError(500, ex.getMessage()))
+                    .entity(ex.getMessage())
                     .build();
         }
     }
@@ -44,7 +42,7 @@ public class UserController {
         } catch (Exception ex) {
             return Response
                     .serverError()
-                    .entity(ServerResponseDTO.getError(500, ex.getMessage()))
+                    .entity(ex.getMessage())
                     .build();
         }
     }
