@@ -23,4 +23,10 @@ public class Question {
 
     public Question() {
     }
+
+    public Question(String title, String content) {
+        this.user = user;
+        this.title = title;
+        this.content = content;
+    }
 }
