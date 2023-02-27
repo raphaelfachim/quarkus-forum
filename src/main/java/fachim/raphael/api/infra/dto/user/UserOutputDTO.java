@@ -5,6 +5,9 @@ public class UserOutputDTO {
     public String mail;
     public Boolean active;
 
+    public UserOutputDTO() {
+    }
+
     public UserOutputDTO(String user, String mail, Boolean active) {
         this.user = user;
         this.mail = mail;
