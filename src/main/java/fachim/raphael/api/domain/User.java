@@ -18,6 +18,13 @@ public class User {
     @OneToMany(mappedBy = "user")
     public Set<Question> questions;
 
+    public Boolean active = Boolean.TRUE;
+
     public User() {
+    }
+
+    public User(String userName, String mail) {
+        this.userName = userName;
+        this.mail = mail;
     }
 }

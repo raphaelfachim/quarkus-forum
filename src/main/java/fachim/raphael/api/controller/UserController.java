@@ -1,13 +1,13 @@
 package fachim.raphael.api.controller;
 
 import fachim.raphael.api.infra.dto.shared.ServerResponseDTO;
+import fachim.raphael.api.infra.dto.user.NewUserDTO;
 import fachim.raphael.api.infra.repository.impl.UserRepository;
 import fachim.raphael.api.service.user.UserService;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.transaction.Transactional;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -15,16 +15,31 @@ import javax.ws.rs.core.Response;
 public class UserController {
 
     @Inject
-    UserRepository userRepo;
+    UserService userService;
 
     @GET
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
     public Response all() {
         try {
-            System.out.println("GET - all");
-            return Response.ok().entity(new UserService(userRepo).findAll()).build();
-//            return Response.ok().entity("Ok").build();
+            return Response.ok().entity(this.userService.findAll()).build();
+
+        } catch (Exception ex) {
+            return Response
+                    .serverError()
+                    .entity(ServerResponseDTO.getError(500, ex.getMessage()))
+                    .build();
+        }
+    }
+
+    @POST
+    @Path("")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response create(NewUserDTO newUser) {
+        try {
+            return Response.ok().entity(this.userService.create(newUser)).build();
 
         } catch (Exception ex) {
             return Response
