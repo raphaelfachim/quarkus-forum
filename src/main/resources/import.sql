@@ -6,3 +6,5 @@
 
 INSERT INTO User (username, mail) VALUES ('raphaelfachim', 'raphaelsiller@gmail.com');
 INSERT INTO User (username, mail) VALUES ('raphaelsiller', 'raphael.fachim@etaure.com.br');
+
+INSERT INTO Question (user_id, title, content) VALUES (1, 'Question Title', 'Question Content');

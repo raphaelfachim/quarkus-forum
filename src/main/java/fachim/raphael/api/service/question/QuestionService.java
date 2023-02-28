@@ -27,9 +27,7 @@ public class QuestionService {
         Question question = QuestionMapper.NewQuestionDTOToQuestion(newQuestionDTO);
         question.user = user;
         questionRepo.create(question);
-        QuestionOutputDTO retorno =  QuestionMapper.QuestionToQuestionOutputDTO(question);
-        System.out.println(retorno);
-        return retorno;
+        return QuestionMapper.QuestionToQuestionOutputDTO(question);
     }
 
 }
