@@ -4,5 +4,5 @@
 -- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-2');
 -- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-3');
 
---INSERT INTO User (id, username, mail) VALUES (1, 'raphaelfachim', 'raphaelsiller@gmail.com');
---INSERT INTO User (id, username, mail) VALUES (2, 'raphaelsiller', 'raphael.fachim@etaure.com.br');
+INSERT INTO User (username, mail) VALUES ('raphaelfachim', 'raphaelsiller@gmail.com');
+INSERT INTO User (username, mail) VALUES ('raphaelsiller', 'raphael.fachim@etaure.com.br');
